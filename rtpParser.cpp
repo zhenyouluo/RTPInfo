@@ -38,6 +38,12 @@ enum PayloadType {
     // A/V are dynamic, 96-127 range
 };
 
+enum H264PayloadType {
+    Single=0,
+    Aggregate,
+    Fragment,
+};
+
 int main(void) {
     struct addrinfo hints, *servinfo, *p;
     int rv;
@@ -177,6 +183,45 @@ int main(void) {
             printf("TIMESTAMP: %"PRIu32"\n", packet.timestamp);
 
             printf("SSRC IDENTIFIER: %"PRIu32"\n", packet.syncronization_source);
+
+            printf("PAYLOAD HEADER: %"PRIu8"\n", buf[12]);
+            // for H.264, the RTP packet payload will consist 3 basic types
+            // single, aggergate, or frag
+            // the FIRST byte should be a valid NAL header
+
+            unsigned forbidden_bit_zero = buf[12] >> 7;
+            unsigned nal_ref_idc = buf[12] >> 6;
+            unsigned nal_unit_type = buf[12] & 0x1F;
+
+            if (forbidden_bit_zero != 0) {
+                puts("MALFORMED NAL");
+            }
+
+            if (nal_ref_idc > 0) {
+                puts("NAL MUST BE DECODED");
+            }else {
+                puts("CAN SAFELY SKIP NAL");
+            }
+
+            switch(nal_unit_type) {
+                case 1:
+                    puts("NON-IDR CODED SLICE");
+                    break;
+                case 2:
+                    puts("CODED SLICE DATA PARTITION A");
+                    break;
+                case 3:
+                    puts("CODED SLICE DATA PARTITION B");
+                    break;
+                case 4:
+                    puts("CODED SLICE DATA PARTITION C");
+                    break;
+                default: {
+                    puts("NOT IN RFC");
+                    break;
+                }
+            }
+            puts("");
         }
     } // forever
 }
