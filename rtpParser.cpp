@@ -1,9 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <functional>
-#include <map>
-#include <vector>
 #include <unistd.h>
 #include <errno.h>
 #include <sys/types.h>
