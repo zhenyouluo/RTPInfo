@@ -40,3 +40,8 @@ RTP Header has minimum size of 12 octets, with prelude, timestamp, ssrc identifi
 * Current RTP Version is 2.
 * Version 1 is Draft
 * Version 0 is VAT Audio tool protocol
+
+
+###Initial Values
+* Initial timestamp is random (RFC 1889 and RFC 3550)
+* Initial SEQ is random (RFC 1889 and RFC 3550)
