@@ -1,5 +1,5 @@
 # RTPInfo
-Utility to tell you info about incoming RTP Stream
+Utility to tell you info about incoming RTP Stream (development heavily in progress)
 
 
 ###Info
