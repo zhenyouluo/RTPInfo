@@ -17,6 +17,13 @@ TIMESTAMP: 883760725
 SSRC IDENTIFIER: 1904748213
 ```
 
+A very helpful way to use this is:
+```
+~$ rtpinfo > log.txt &
+~$ tail -f log.txt | grep --line-buffered PATTERN
+```
+
+
 ###Info
 
 RTP Header has minimum size of 12 octets, with prelude, timestamp, ssrc identifier, followed by optional trailing info.
