@@ -6,15 +6,15 @@ Utility to tell you info about incoming RTP Stream (development heavily in progr
 ```
 ~$ ./rtpParser
 LISTENING ON: 8192
-80 60 F7 35
-15 8D 26 78
-79 2D 5B 36
+80 60 88 96
+34 AD 1E 55
+71 88 26 B5
 VERSION: 2
 CONTAINS 0 CSRC identifiers
 PAYLOAD TYPE: 96
-SEQUENCE NUMBER: 63285
-TIMESTAMP: 361571960
-SSRC IDENTIFIER: 0
+SEQUENCE NUMBER: 34966
+TIMESTAMP: 883760725
+SSRC IDENTIFIER: 1904748213
 ```
 
 ###Info
@@ -45,3 +45,9 @@ RTP Header has minimum size of 12 octets, with prelude, timestamp, ssrc identifi
 ###Initial Values
 * Initial timestamp is random (RFC 1889 and RFC 3550)
 * Initial SEQ is random (RFC 1889 and RFC 3550)
+
+####Additional Material
+* [RFC 3550](https://tools.ietf.org/html/rfc3550)
+* [RFC 3551](https://tools.ietf.org/html/rfc3551)
+* [RFC 6184](https://tools.ietf.org/html/rfc6184)
+* [RFC 6416](https://tools.ietf.org/html/rfc6416)
