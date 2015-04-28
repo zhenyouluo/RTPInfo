@@ -1,6 +1,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <functional>
+#include <map>
+#include <vector>
 #include <unistd.h>
 #include <errno.h>
 #include <sys/types.h>
@@ -106,6 +109,8 @@ int main(void) {
             // have to verify endianness here
             // might actually be the other way around!
             packet.timestamp = buf[4] << 24 | buf[5] << 16 | buf[6] << 8 | buf[7];
+
+            packet.syncronization_source = buf[8] << 24 | buf[9] << 16 | buf[10] << 8 | buf[11];
 
 
             switch (packet.version) {
