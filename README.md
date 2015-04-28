@@ -2,6 +2,21 @@
 Utility to tell you info about incoming RTP Stream (development heavily in progress)
 
 
+###Example Output
+```
+~$ ./rtpParser
+LISTENING ON: 8192
+80 60 F7 35
+15 8D 26 78
+79 2D 5B 36
+VERSION: 2
+CONTAINS 0 CSRC identifiers
+PAYLOAD TYPE: 96
+SEQUENCE NUMBER: 63285
+TIMESTAMP: 361571960
+SSRC IDENTIFIER: 0
+```
+
 ###Info
 
 RTP Header has minimum size of 12 octets, with prelude, timestamp, ssrc identifier, followed by optional trailing info.
